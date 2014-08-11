@@ -2,20 +2,17 @@
 {
     public abstract class PartieDuNombre
     {
-        public Nombre NombreInitial;
-        protected Nombre PartieDuNombreAConvertir;
+        public readonly Nombre PartieDuNombreAConvertir;
 
-        public PartieDuNombre(Nombre nombreInitial, Nombre partieDuNomAConvertir)
+        protected PartieDuNombre(Nombre partieDuNomAConvertir)
         {
-            NombreInitial = nombreInitial;
             PartieDuNombreAConvertir = partieDuNomAConvertir;
         }
 
-        protected abstract string Libelle { get; }
+        public abstract string Libelle { get; }
 
         public virtual string Convertir()
         {
-            //return string.Empty;
             return string.Format("{0} {1}", ConvertisseurNombreEnLettre.ConvertirAvecParametrageParDefaut(PartieDuNombreAConvertir), Libelle);
         }
     }

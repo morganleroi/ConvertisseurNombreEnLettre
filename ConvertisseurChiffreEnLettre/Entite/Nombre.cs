@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 
 namespace ConvertisseurNombreEnLettre
 {
@@ -34,22 +33,18 @@ namespace ConvertisseurNombreEnLettre
             return DizaineAvecExceptionPourUneUnite.Any(x => x == NombreDeDizaine);
         }
 
-        public IList<PartieDuNombre> RecupererLaDecomposition()
+        public IEnumerable<PartieDuNombre> RecupererLaDecomposition()
         {
             var chiffreDeCompose = new List<PartieDuNombre>();
 
-            var nombreInitial = new Nombre(_nombre);
-
             if (NombreDeMillion > 0)
-                chiffreDeCompose.Add(new PartieDuNombreEnMillion(nombreInitial, new Nombre(NombreDeMillion)));
+                chiffreDeCompose.Add(new PartieDuNombreEnMillion(new Nombre(NombreDeMillion)));
 
             if (NombreDeMillier > 0)
-                chiffreDeCompose.Add(new PartieDuNombreEnMillier(nombreInitial, new Nombre(NombreDeMillier)));
+                chiffreDeCompose.Add(new PartieDuNombreEnMillier(new Nombre(NombreDeMillier)));
 
             if (NombreCentaineDizaineUnite > 0)
-                chiffreDeCompose.Add(new PartieDuNombreEnCentaine(nombreInitial, new Nombre(NombreCentaineDizaineUnite)));
-
-
+                chiffreDeCompose.Add(new PartieDuNombreEnCentaine(new Nombre(NombreCentaineDizaineUnite)));
 
             return chiffreDeCompose;
         }
@@ -67,11 +62,6 @@ namespace ConvertisseurNombreEnLettre
             NombreDeCentaine = RecupererAPartirDeLaDecomposition(decompositionDuChiffre, 2, 2);
             NombreDeDizaine = RecupererAPartirDeLaDecomposition(decompositionDuChiffre, 1, 1);
             NombreUnite = RecupererAPartirDeLaDecomposition(decompositionDuChiffre, 0, 0);
-            //NombreDeMillion = _nombre / 1000000;
-            //NombreDeMillier = (_nombre - (NombreDeMillion * 1000000)) / 1000;
-            //NombreDeCentaine = (_nombre - (NombreDeMillion * 1000000) - (NombreDeMillier * 1000)) / 100;
-            //NombreDeDizaine = (_nombre - (NombreDeMillion * 1000000) - (NombreDeMillier * 1000) - (NombreDeCentaine * 100)) / 10;
-            //NombreUnite = _nombre % 10;
         }
 
         private int RecupererAPartirDeLaDecomposition(int[] decompositionDuChiffre, int indexDebut, int indexFin)
@@ -80,6 +70,16 @@ namespace ConvertisseurNombreEnLettre
             for (var i = indexDebut; i <= indexFin; i++)
                 nombre += (int)(decompositionDuChiffre[i] * Math.Pow(10, i));
             return (int)(nombre / Math.Pow(10, indexDebut));
+        }
+
+        public bool PossedeUneSeuleDizaine()
+        {
+            return this.NombreDeDizaine == 1;
+        }
+
+        public bool EstUneExceptionDizaineSoixanteDix()
+        {
+            return this.NombreDeDizaine == 7 && this.NombreUnite > 0;
         }
     }
 }

@@ -46,6 +46,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Convertisseur\Convertisseur.cs" />
+    <Compile Include="Convertisseur\ConvertisseurCentaine.cs" />
+    <Compile Include="Convertisseur\ConvertisseurDizaine.cs" />
     <Compile Include="Convertisseur\ConvertisseurUnite.cs" />
     <Compile Include="Extensions\IntegerExtension.cs" />
     <Compile Include="Entite\Nombre.cs" />

@@ -38,21 +38,21 @@ namespace ConvertisseurChiffreEnLettre.Test
         [TestMethod]
         public void PeutConvertirUnePartieEnMillion()
         {
-            var partieEnMillion = new PartieDuNombreEnMillion(new Nombre(1),new Nombre(1));
+            var partieEnMillion = new PartieDuNombreEnMillion(new Nombre(1));
             partieEnMillion.Convertir().Should().Be("un million");
         }
 
         [TestMethod]
         public void PeutConvertirUnePartieEnMillionAvecAccord()
         {
-            var partieEnMillion = new PartieDuNombreEnMillion(new Nombre(2),new Nombre(2));
+            var partieEnMillion = new PartieDuNombreEnMillion(new Nombre(2));
             partieEnMillion.Convertir().Should().Be("deux millions");
         }
 
         [TestMethod]
         public void PeutConvertirUnePartieEnMillier()
         {
-            var partieEnMillier = new PartieDuNombreEnMillier(new Nombre(2),new Nombre(2));
+            var partieEnMillier = new PartieDuNombreEnMillier(new Nombre(2));
             partieEnMillier.Convertir().Should().Be("deux mille");
         }
 

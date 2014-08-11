@@ -2,15 +2,9 @@ namespace ConvertisseurNombreEnLettre
 {
     public class PartieDuNombreEnMillier : PartieDuNombre
     {
+        public PartieDuNombreEnMillier(Nombre partieDuNomAConvertir) : base(partieDuNomAConvertir){}
 
-
-        //public override Convertisseur Convertisseur { get; set; }
-
-        public PartieDuNombreEnMillier(Nombre nombreInitial, Nombre partieDuNomAConvertir) : base(nombreInitial, partieDuNomAConvertir)
-        {
-        }
-
-        protected override string Libelle
+        public override string Libelle
         {
             get { return "mille"; }
         }

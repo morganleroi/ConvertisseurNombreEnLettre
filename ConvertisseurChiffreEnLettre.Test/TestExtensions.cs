@@ -10,7 +10,7 @@ namespace ConvertisseurChiffreEnLettre.Test
         [TestMethod]
         public void PeutConvertirDepuisUnInt()
         {
-            42.ConvertirEnLettre().Should().Be("quarante-deux");
+            42.ConvertirEnLettre().Should().Be("quarante deux");
         }
     }
 }

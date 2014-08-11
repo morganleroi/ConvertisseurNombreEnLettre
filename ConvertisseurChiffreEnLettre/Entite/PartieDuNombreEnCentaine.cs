@@ -2,16 +2,11 @@ namespace ConvertisseurNombreEnLettre
 {
     public class PartieDuNombreEnCentaine : PartieDuNombre
     {
+        public PartieDuNombreEnCentaine(Nombre partieDuNomAConvertir) : base(partieDuNomAConvertir){}
 
-        //public override Convertisseur Convertisseur { get; set; }
-
-        public PartieDuNombreEnCentaine(Nombre nombreInitial, Nombre partieDuNomAConvertir) : base(nombreInitial, partieDuNomAConvertir)
+        public override string Libelle
         {
-        }
-
-        protected override string Libelle
-        {
-            get { return "cent"; }
+            get { return ""; }
         }
     }
 }

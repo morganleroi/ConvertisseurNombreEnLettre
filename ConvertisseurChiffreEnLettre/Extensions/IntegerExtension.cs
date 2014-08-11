@@ -4,7 +4,7 @@
     {
        public static string ConvertirEnLettre(this int nombre)
        {
-           return ConvertisseurNombreEnLettre.ConvertirAvecParametrageParDefaut(nombre);
+           return ConvertisseurNombreEnLettre.ConvertirAvecParametrageParDefaut(new Nombre(nombre));
        }
     }
 }
