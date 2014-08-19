@@ -2,38 +2,52 @@
 {
     public class ConvertisseurDizaine : Convertisseur
     {
-        private readonly ConvertisseurNombreEnLettre.ParametrageDuConvertisseur _parametrage;
         static readonly string[] ExceptionDizaineBelgeEtSuisse = { " ", " ", " ", " ", " ", " ", " ", " septante", " ", " nonante" };
         static readonly string[] PremiereDizaine = { " ", " dix", " onze", " douze", " treize", " quatorze", " quinze", " seize", " dix-sept", "dix-huit", "dix-neuf" };
         static readonly string[] Dizaine = { " ", " ", " vingt", " trente", " quarante", " cinquante", " soixante", " soixante-dix", " quatre-vingt", " quatre-vingt-dix" };
         
-        public ConvertisseurDizaine(Nombre nombre, ConvertisseurNombreEnLettre.ParametrageDuConvertisseur parametrage)
-            : base(nombre)
+        public ConvertisseurDizaine(Nombre partieDuNombreAConvertir,Nombre nombreOriginal, ConvertisseurNombreEnLettre.ParametrageDuConvertisseur parametrage)
+            : base(partieDuNombreAConvertir,nombreOriginal, parametrage)
         {
-            _parametrage = parametrage;
         }
 
         public override string Convertir()
         {
             var resultat = string.Empty;
 
-            if (Nombre.PossedeUneSeuleDizaine())
+            if (PartieDuNombreAConvertir.PossedeUneSeuleDizaine())
             {
-                return ConvertirLaPremiereDizaine(resultat, Nombre);
+                return ConvertirLaPremiereDizaine(resultat, PartieDuNombreAConvertir);
             }
 
-            if (Nombre.NombreDeDizaine > 1)
+            if (PartieDuNombreAConvertir.NombreDeDizaine > 1)
             {
-                if (Nombre.EstUneExceptionDizaineSoixanteDix())
+                if (PartieDuNombreAConvertir.EstUneExceptionDizaineSoixanteDix())
                 {
-                    resultat = AjouterAuResultat(Dizaine[Nombre.NombreDeDizaine].Replace("-dix", string.Empty), resultat);
-                    return ConvertirLaPremiereDizaine(resultat, Nombre);
+                    resultat = AjouterAuResultat(Dizaine[PartieDuNombreAConvertir.NombreDeDizaine].Replace("-dix", string.Empty), resultat);
+
+                    if (PartieDuNombreAConvertir.NombreUnite == 1)
+                        resultat = GererExceptionSoixanteEtOnze(resultat);
+                    
+                    return ConvertirLaPremiereDizaine(resultat, PartieDuNombreAConvertir);
                 }
 
-                resultat = AjouterAuResultat(RecupererLaDizaine(Nombre.NombreDeDizaine), resultat);
+
+                string dizaine = RecupererLaDizaine(PartieDuNombreAConvertir.NombreDeDizaine);
+
+                if (NombreOriginal.EstQuatreVingt())
+                    dizaine += "s";
+
+                resultat = AjouterAuResultat(dizaine, resultat);
             }
 
             return resultat.Trim();
+        }
+
+        private string GererExceptionSoixanteEtOnze(string resultat)
+        {
+            resultat = AjouterAuResultat("et", resultat);
+            return resultat;
         }
 
         private string ConvertirLaPremiereDizaine(string resultat, Nombre chiffre)

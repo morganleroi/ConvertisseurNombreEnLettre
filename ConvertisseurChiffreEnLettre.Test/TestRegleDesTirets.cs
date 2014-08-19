@@ -5,12 +5,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace ConvertisseurChiffreEnLettre.Test
 {
     [TestClass]
-    public class TestExtensions
+    public class TestRegleDesTirets
     {
         [TestMethod]
-        public void PeutConvertirDepuisUnInt()
+        public void PeutAppliquerLaRegleDesTiretsParDefaut()
         {
-            42.ConvertirEnLettre().Should().Be("quarante-deux");
+            272.ConvertirEnLettre().Should().Be("deux-cent-soixante-douze");
         }
     }
 }

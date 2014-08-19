@@ -2,20 +2,24 @@
 {
     public class ConvertisseurCentaine : Convertisseur
     {
-        private readonly ConvertisseurNombreEnLettre.ParametrageDuConvertisseur _parametrage;
-
-        public ConvertisseurCentaine(Nombre nombre, ConvertisseurNombreEnLettre.ParametrageDuConvertisseur parametrage)
-            : base(nombre)
+        public ConvertisseurCentaine(Nombre partieDuNombreAConvertir, Nombre nombreOriginal,ConvertisseurNombreEnLettre.ParametrageDuConvertisseur parametrage)
+            : base(partieDuNombreAConvertir, nombreOriginal, parametrage)
         {
-            _parametrage = parametrage;
         }
 
         public override string Convertir()
         {
             var resultat = string.Empty;
-            if (Nombre.NombreDeCentaine > 0)
+            if (PartieDuNombreAConvertir.NombreDeCentaine > 0)
             {
-                resultat = AjouterAuResultat(Unite[Nombre.NombreDeCentaine], resultat) + " cent";
+                if (PartieDuNombreAConvertir.NombreDeCentaine == 1)
+                    return "cent";
+
+                var cent = "cent";
+                if(PartieDuNombreAConvertir.NombreDeDizaine == 0 && PartieDuNombreAConvertir.NombreUnite == 0)
+                    cent = "cents";
+
+                resultat = string.Format("{0}{1}{2}", AjouterAuResultat(Unite[PartieDuNombreAConvertir.NombreDeCentaine], resultat), _parametrage.RecupererSeparateur(), cent);
             }
 
             return resultat.Trim();

@@ -81,5 +81,15 @@ namespace ConvertisseurNombreEnLettre
         {
             return this.NombreDeDizaine == 7 && this.NombreUnite > 0;
         }
+
+        public bool EstZero()
+        {
+            return _nombre == 0;
+        }
+
+        public bool EstQuatreVingt()
+        {
+            return _nombre == 80;
+        }
     }
 }

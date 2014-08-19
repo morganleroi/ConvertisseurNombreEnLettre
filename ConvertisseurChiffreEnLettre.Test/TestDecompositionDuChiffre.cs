@@ -34,49 +34,5 @@ namespace ConvertisseurChiffreEnLettre.Test
             new Nombre(1546567).NombreDeMillier.Should().Be(546);
             new Nombre(1546567).NombreDeMillion.Should().Be(1);
         }
-
-        [TestMethod]
-        public void PeutConvertirUnePartieEnMillion()
-        {
-            var partieEnMillion = new PartieDuNombreEnMillion(new Nombre(1));
-            partieEnMillion.Convertir().Should().Be("un million");
-        }
-
-        [TestMethod]
-        public void PeutConvertirUnePartieEnMillionAvecAccord()
-        {
-            var partieEnMillion = new PartieDuNombreEnMillion(new Nombre(2));
-            partieEnMillion.Convertir().Should().Be("deux millions");
-        }
-
-        [TestMethod]
-        public void PeutConvertirUnePartieEnMillier()
-        {
-            var partieEnMillier = new PartieDuNombreEnMillier(new Nombre(2));
-            partieEnMillier.Convertir().Should().Be("deux mille");
-        }
-
-        //[TestMethod]
-        //public void PeutConvertirUnePartieEnCentaine()
-        //{
-        //    var partieEnMillier = new PartieDuNombreEnCentaine(2);
-        //    partieEnMillier.Convertir().Should().Be("deux mille");
-        //}
-
-        //[TestMethod]
-        //public void PeutDecomposerUnNombreEnSousPartie()
-        //{
-        //    var decomposition = new Nombre(1546567);
-        //    var listeDesPartiesDuNombre = decomposition.RecupererLaDecomposition();
-        //    listeDesPartiesDuNombre.Should().HaveCount(3);
-
-        //    listeDesPartiesDuNombre[0].Should().BeOfType<PartieDuNombreEnMillion>();
-        //    listeDesPartiesDuNombre[1].Should().BeOfType<PartieDuNombreEnMillier>();
-        //    listeDesPartiesDuNombre[2].Should().BeOfType<PartieDuNombreEnCentaine>();
-
-        //    listeDesPartiesDuNombre[0].Convertir().Should().Be("un million");
-        //    listeDesPartiesDuNombre[1].Convertir().Should().Be("cinq cent quarante six mille");
-        //    listeDesPartiesDuNombre[2].Convertir().Should().Be("cinq cent soixante sept");
-        //}
     }
 }

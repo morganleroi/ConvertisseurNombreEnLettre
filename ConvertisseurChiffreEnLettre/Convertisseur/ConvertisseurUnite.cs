@@ -2,22 +2,22 @@
 {
     public class ConvertisseurUnite : Convertisseur
     {
-        public ConvertisseurUnite(Nombre nombre): base(nombre) {}
+        public ConvertisseurUnite(Nombre partieDuNombreAConvertir, Nombre nombreOriginal, ConvertisseurNombreEnLettre.ParametrageDuConvertisseur parametrage): base(partieDuNombreAConvertir, nombreOriginal, parametrage) {}
 
         public override string Convertir()
         {
-            if (Nombre.PossedeUneSeuleDizaine() || Nombre.EstUneExceptionDizaineSoixanteDix())
+            if (PartieDuNombreAConvertir.PossedeUneSeuleDizaine() || PartieDuNombreAConvertir.EstUneExceptionDizaineSoixanteDix())
                 return string.Empty;
 
             var resultat = string.Empty;
 
-            if (Nombre.NombreUnite > 0)
+            if (PartieDuNombreAConvertir.NombreUnite > 0)
             {
-                string convertionUnite = Unite[Nombre.NombreUnite];
+                string convertionUnite = Unite[PartieDuNombreAConvertir.NombreUnite];
 
-                if (Nombre.NombreUnite == 1 && Nombre.EstUneDizaineAvecExceptionPourUneUnite())
+                if (PartieDuNombreAConvertir.NombreUnite == 1 && PartieDuNombreAConvertir.EstUneDizaineAvecExceptionPourUneUnite())
                 {
-                    resultat = AjouterAuResultat(" et" + convertionUnite, resultat);
+                    resultat = AjouterAuResultat(string.Format("{0}{1}", "et", _parametrage.RecupererSeparateur()) + convertionUnite, resultat);
                 }
                 else resultat = AjouterAuResultat(convertionUnite, resultat);
             }

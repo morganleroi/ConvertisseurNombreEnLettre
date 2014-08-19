@@ -9,7 +9,16 @@
 
             public static ParametrageDuConvertisseur ParDefaut()
             {
-                return new ParametrageDuConvertisseur();
+                return new ParametrageDuConvertisseur
+                {
+                    RegleDeTraductionBelgeEtSuisse = false,
+                    RegleDesTiretsDe1990 = true
+                };
+            }
+
+            public string RecupererSeparateur()
+            {
+                return RegleDesTiretsDe1990 ? "-" : " ";
             }
         }
     }

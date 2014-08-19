@@ -10,10 +10,5 @@
         }
 
         public abstract string Libelle { get; }
-
-        public virtual string Convertir()
-        {
-            return string.Format("{0} {1}", ConvertisseurNombreEnLettre.ConvertirAvecParametrageParDefaut(PartieDuNombreAConvertir), Libelle);
-        }
     }
 }

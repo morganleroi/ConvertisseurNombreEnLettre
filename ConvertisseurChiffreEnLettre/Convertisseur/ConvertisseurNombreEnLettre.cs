@@ -4,7 +4,7 @@
     {
         static readonly string[] Unite = { "zéro", " un", " deux", " trois", " quatre", " cinq", " six", " sept", " huit", " neuf" };
 
-        private ParametrageDuConvertisseur _parametrage;
+        private readonly ParametrageDuConvertisseur _parametrage;
 
         private ConvertisseurNombreEnLettre(ParametrageDuConvertisseur parametrage)
         {
@@ -33,24 +33,33 @@
 
         private string Convertir(Nombre nombre)
         {
+            if (nombre.EstZero())
+                return Unite[0];
+
             var resultat = string.Empty;
             foreach (var partieDuNombre in nombre.RecupererLaDecomposition())
             {
-                resultat = ConvertirUnePartieDuNombre(partieDuNombre.PartieDuNombreAConvertir, resultat) + " " + partieDuNombre.Libelle;
+                // Todo : Qui doit avoir la responsabilité de gérer le dernier - ajouté dans le cas du PartieDuNombreEnCentaine
+                // soixante-douze-
+                if (string.IsNullOrEmpty(partieDuNombre.Libelle))
+                    resultat = ConvertirUnePartieDuNombre(partieDuNombre.PartieDuNombreAConvertir, nombre, resultat);
+                else
+                    resultat = ConvertirUnePartieDuNombre(partieDuNombre.PartieDuNombreAConvertir, nombre, resultat) +
+                               _parametrage.RecupererSeparateur() + partieDuNombre.Libelle;
             }
 
             return resultat.Trim();
         }
 
-        private string ConvertirUnePartieDuNombre(Nombre nombre, string resultat)
+        private string ConvertirUnePartieDuNombre(Nombre nombre, Nombre nombreInitial, string resultat)
         {
-            var convertisseurCentaine = new ConvertisseurCentaine(nombre, _parametrage);
+            var convertisseurCentaine = new ConvertisseurCentaine(nombre,nombreInitial, _parametrage);
             resultat = AjouterAuResultat(convertisseurCentaine.Convertir(), resultat);
 
-            var convertisseurDizaine = new ConvertisseurDizaine(nombre, _parametrage);
+            var convertisseurDizaine = new ConvertisseurDizaine(nombre,nombreInitial, _parametrage);
             resultat = AjouterAuResultat(convertisseurDizaine.Convertir(), resultat);
 
-            var convertisseurUnite = new ConvertisseurUnite(nombre);
+            var convertisseurUnite = new ConvertisseurUnite(nombre,nombreInitial, _parametrage);
             resultat = AjouterAuResultat(convertisseurUnite.Convertir(), resultat);
 
             return RenvoyerLeResultat(resultat);
@@ -60,16 +69,18 @@
 
         private string AjouterAuResultat(string termeAAjouter, string resultat)
         {
-            if (!string.IsNullOrEmpty(resultat))
-                return string.Format("{0} {1}", resultat, termeAAjouter.Trim());
+            if (string.IsNullOrWhiteSpace(termeAAjouter))
+                return resultat;
 
-            //if (_parametrage.RegleDesTiretsDe1990 && !string.IsNullOrEmpty(resultat))
-            //    return string.Format("{0}-{1}", resultat, termeAAjouter.Trim());
+            if (!string.IsNullOrEmpty(resultat))
+                return string.Format("{0}{1}{2}", resultat, _parametrage.RecupererSeparateur(), termeAAjouter.Trim());
+
             return resultat + termeAAjouter;
         }
 
         private static string RenvoyerLeResultat(string resultat)
         {
+            resultat = resultat.TrimEnd('-');
             return resultat.Trim();
         }
     }
