@@ -74,7 +74,7 @@ namespace ConvertisseurChiffreEnLettre.Test
                   .ValiderLeParametrage();
 
             convertisseur.Convertir(70).Should().Be("septante");
-            convertisseur.Convertir(93).Should().Be("nonante trois");
+            convertisseur.Convertir(93).Should().Be("nonante-trois");
         }
 
         [TestMethod]

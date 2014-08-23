@@ -14,21 +14,14 @@
 
             if (PartieDuNombreAConvertir.NombreUnite > 0)
             {
-                string convertionUnite = Unite[PartieDuNombreAConvertir.NombreUnite];
+                var convertionUnite = Unite[PartieDuNombreAConvertir.NombreUnite];
 
                 if (PartieDuNombreAConvertir.NombreUnite == 1 && PartieDuNombreAConvertir.EstUneDizaineAvecExceptionPourUneUnite())
-                {
                     resultat = AjouterAuResultat(string.Format("{0}{1}", "et", Parametrage.RecupererSeparateur()) + convertionUnite, resultat);
-                }
-
                 else resultat = AjouterAuResultat(convertionUnite, resultat);
             }
 
             return resultat.Trim();
         }
-
-
-
-        public bool EstMille { get; set; }
     }
 }

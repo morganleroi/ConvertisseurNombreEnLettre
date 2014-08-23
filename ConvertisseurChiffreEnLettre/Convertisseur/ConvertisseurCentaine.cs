@@ -2,6 +2,9 @@
 {
     public class ConvertisseurCentaine : Convertisseur
     {
+        private const string Cent = "cent";
+        private const string Cents = "cents";
+
         public ConvertisseurCentaine(Nombre partieDuNombreAConvertir, Nombre nombreOriginal,ConvertisseurNombreEnLettre.ParametrageDuConvertisseur parametrage)
             : base(partieDuNombreAConvertir, nombreOriginal, parametrage)
         {
@@ -10,18 +13,17 @@
         public override string Convertir()
         {
             var resultat = string.Empty;
-            // todo
-            // a améliorer
+            
             if (PartieDuNombreAConvertir.NombreDeCentaine > 0)
             {
                 if (PartieDuNombreAConvertir.NombreDeCentaine == 1)
-                    return "cent";
-
-                var cent = "cent";
+                    return Cent;
+                    
+                var libelle = Cent;
                 if(PartieDuNombreAConvertir.NombreDeDizaine == 0 && PartieDuNombreAConvertir.NombreUnite == 0)
-                    cent = "cents";
+                    libelle = Cents;
 
-                resultat = string.Format("{0}{1}{2}", AjouterAuResultat(Unite[PartieDuNombreAConvertir.NombreDeCentaine], resultat), Parametrage.RecupererSeparateur(), cent);
+                resultat = string.Format("{0}{1}{2}", AjouterAuResultat(Unite[PartieDuNombreAConvertir.NombreDeCentaine], resultat), Parametrage.RecupererSeparateur(), libelle);
             }
 
             return resultat.Trim();

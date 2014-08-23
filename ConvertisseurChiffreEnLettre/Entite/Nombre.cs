@@ -77,6 +77,13 @@ namespace ConvertisseurNombreEnLettre
             return this.NombreDeDizaine == 1;
         }
 
+        public bool PossedePlusieursDizaine()
+        {
+            return this.NombreDeDizaine > 1;
+        }
+
+
+
         public bool EstUneExceptionDizaineSoixanteDix()
         {
             return this.NombreDeDizaine == 7 && this.NombreUnite > 0;
@@ -90,6 +97,11 @@ namespace ConvertisseurNombreEnLettre
         public bool EstQuatreVingt()
         {
             return _nombre == 80;
+        }
+
+        public bool EstUn()
+        {
+            return _nombre == 1;
         }
     }
 }

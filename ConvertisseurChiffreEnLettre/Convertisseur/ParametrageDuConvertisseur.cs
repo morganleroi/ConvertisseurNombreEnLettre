@@ -6,6 +6,7 @@
         {
             public bool RegleDesTiretsDe1990 { get; set; }
             public bool RegleDeTraductionBelgeEtSuisse { get; set; }
+            public Devise Devise { get; set; }
 
             public static ParametrageDuConvertisseur ParDefaut()
             {
@@ -19,6 +20,11 @@
             public string RecupererSeparateur()
             {
                 return RegleDesTiretsDe1990 ? "-" : " ";
+            }
+
+            public string RecupererLaDevisePourLeNombre(Nombre nombre)
+            {
+                return (nombre.EstZero() || nombre.EstUn()) ? Devise.Singulier() : Devise.Pluriel();
             }
         }
     }

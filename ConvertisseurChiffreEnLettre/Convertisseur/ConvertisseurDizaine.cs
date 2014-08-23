@@ -7,41 +7,46 @@
         static readonly string[] Dizaine = { " ", " ", " vingt", " trente", " quarante", " cinquante", " soixante", " soixante-dix", " quatre-vingt", " quatre-vingt-dix" };
         
         public ConvertisseurDizaine(Nombre partieDuNombreAConvertir,Nombre nombreOriginal, ConvertisseurNombreEnLettre.ParametrageDuConvertisseur parametrage)
-            : base(partieDuNombreAConvertir,nombreOriginal, parametrage)
-        {
-        }
+            : base(partieDuNombreAConvertir,nombreOriginal, parametrage) {}
 
         public override string Convertir()
         {
             var resultat = string.Empty;
 
             if (PartieDuNombreAConvertir.PossedeUneSeuleDizaine())
-            {
                 return ConvertirLaPremiereDizaine(resultat, PartieDuNombreAConvertir);
-            }
 
-            if (PartieDuNombreAConvertir.NombreDeDizaine > 1)
+            if (PartieDuNombreAConvertir.PossedePlusieursDizaine())
             {
                 if (PartieDuNombreAConvertir.EstUneExceptionDizaineSoixanteDix())
-                {
-                    resultat = AjouterAuResultat(Dizaine[PartieDuNombreAConvertir.NombreDeDizaine].Replace("-dix", string.Empty), resultat);
+                    return GererExceptionSoixanteDix(resultat);
 
-                    if (PartieDuNombreAConvertir.NombreUnite == 1)
-                        resultat = GererExceptionSoixanteEtOnze(resultat);
-                    
-                    return ConvertirLaPremiereDizaine(resultat, PartieDuNombreAConvertir);
-                }
-
-
-                string dizaine = RecupererLaDizaine(PartieDuNombreAConvertir.NombreDeDizaine);
+                var dizaine = RecupererLaDizaine(PartieDuNombreAConvertir.NombreDeDizaine);
 
                 if (NombreOriginal.EstQuatreVingt())
-                    dizaine += "s";
+                    dizaine = GererAccordQuatreVingt(dizaine);
 
                 resultat = AjouterAuResultat(dizaine, resultat);
             }
 
             return resultat.Trim();
+        }
+
+        private string GererExceptionSoixanteDix(string resultat)
+        {
+            resultat = AjouterAuResultat(Dizaine[PartieDuNombreAConvertir.NombreDeDizaine].Replace("-dix", string.Empty),
+                resultat);
+
+            if (PartieDuNombreAConvertir.NombreUnite == 1)
+                resultat = GererExceptionSoixanteEtOnze(resultat);
+
+            return ConvertirLaPremiereDizaine(resultat, PartieDuNombreAConvertir);
+        }
+
+        private static string GererAccordQuatreVingt(string dizaine)
+        {
+            dizaine += "s";
+            return dizaine;
         }
 
         private string GererExceptionSoixanteEtOnze(string resultat)
