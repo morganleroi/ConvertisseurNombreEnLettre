@@ -2,7 +2,8 @@
 {
     public class ConvertisseurUnite : Convertisseur
     {
-        public ConvertisseurUnite(Nombre partieDuNombreAConvertir, Nombre nombreOriginal, ConvertisseurNombreEnLettre.ParametrageDuConvertisseur parametrage): base(partieDuNombreAConvertir, nombreOriginal, parametrage) {}
+        public ConvertisseurUnite(Nombre partieDuNombreAConvertir, Nombre nombreOriginal, ConvertisseurNombreEnLettre.ParametrageDuConvertisseur parametrage): base(partieDuNombreAConvertir, nombreOriginal, parametrage) {
+        }
 
         public override string Convertir()
         {
@@ -17,12 +18,17 @@
 
                 if (PartieDuNombreAConvertir.NombreUnite == 1 && PartieDuNombreAConvertir.EstUneDizaineAvecExceptionPourUneUnite())
                 {
-                    resultat = AjouterAuResultat(string.Format("{0}{1}", "et", _parametrage.RecupererSeparateur()) + convertionUnite, resultat);
+                    resultat = AjouterAuResultat(string.Format("{0}{1}", "et", Parametrage.RecupererSeparateur()) + convertionUnite, resultat);
                 }
+
                 else resultat = AjouterAuResultat(convertionUnite, resultat);
             }
 
             return resultat.Trim();
         }
+
+
+
+        public bool EstMille { get; set; }
     }
 }

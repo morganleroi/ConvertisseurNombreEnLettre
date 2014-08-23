@@ -58,7 +58,7 @@
 
         private string RecupererLaDizaine(int nombreDeDizaine)
         {
-            if (_parametrage.RegleDeTraductionBelgeEtSuisse)
+            if (Parametrage.RegleDeTraductionBelgeEtSuisse)
             {
                 return ExceptionDizaineBelgeEtSuisse[nombreDeDizaine];
             }

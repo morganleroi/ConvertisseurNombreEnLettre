@@ -2,11 +2,13 @@ namespace ConvertisseurNombreEnLettre
 {
     public class PartieDuNombreEnMillion : PartieDuNombre
     {
-        public PartieDuNombreEnMillion(Nombre partieDuNomAConvertir) : base(partieDuNomAConvertir){}
+        private const string Millions = "millions";
+        private const string Million = "million";
+        public PartieDuNombreEnMillion(Nombre partieDuNomAConvertir, Nombre nombreOriginal, ConvertisseurNombreEnLettre.ParametrageDuConvertisseur parametrage) : base(partieDuNomAConvertir, nombreOriginal, parametrage) { }
 
-        public override string Libelle
+        protected override string Libelle
         {
-            get { return (PartieDuNombreAConvertir.NombreCentaineDizaineUnite > 1) ? "millions" : "million"; }
+            get { return (PartieDuNombreAConvertir.NombreCentaineDizaineUnite > 1) ? Millions : Million; }
         }
     }
 }

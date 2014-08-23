@@ -4,7 +4,7 @@
     {
         public class FabriqueParametrageDuConvertisseur
         {
-            private ParametrageDuConvertisseur _parametrageDuConvertisseur;
+            private readonly ParametrageDuConvertisseur _parametrageDuConvertisseur;
 
             public FabriqueParametrageDuConvertisseur()
             {

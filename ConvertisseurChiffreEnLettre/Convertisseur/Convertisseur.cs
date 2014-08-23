@@ -2,17 +2,17 @@ namespace ConvertisseurNombreEnLettre
 {
     public abstract class Convertisseur
     {
-        public Nombre NombreOriginal { get; set; }
-        protected static readonly string[] Unite = { "zéro", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf" };
+        public static readonly string[] Unite = { "zéro", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf" };
 
+        protected readonly Nombre NombreOriginal;
         protected readonly Nombre PartieDuNombreAConvertir;
-        protected readonly ConvertisseurNombreEnLettre.ParametrageDuConvertisseur _parametrage;
+        protected readonly ConvertisseurNombreEnLettre.ParametrageDuConvertisseur Parametrage;
 
         protected Convertisseur(Nombre partieDuNombreAConvertir, Nombre nombreOriginal, ConvertisseurNombreEnLettre.ParametrageDuConvertisseur parametrage)
         {
             NombreOriginal = nombreOriginal;
             PartieDuNombreAConvertir = partieDuNombreAConvertir;
-            _parametrage = parametrage;
+            Parametrage = parametrage;
         }
 
         public abstract string Convertir();
@@ -21,8 +21,7 @@ namespace ConvertisseurNombreEnLettre
         {
             if (!string.IsNullOrEmpty(resultat))
             {
-                string separateur = _parametrage.RegleDesTiretsDe1990 ? "-" : " ";
-                return string.Format("{0}{1}{2}", resultat,separateur, termeAAjouter.Trim());
+                return string.Format("{0}{1}{2}", resultat,Parametrage.RecupererSeparateur(), termeAAjouter.Trim());
             }
             return resultat + termeAAjouter;
         }

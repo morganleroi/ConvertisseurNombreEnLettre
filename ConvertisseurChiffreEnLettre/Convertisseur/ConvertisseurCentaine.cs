@@ -10,6 +10,8 @@
         public override string Convertir()
         {
             var resultat = string.Empty;
+            // todo
+            // a améliorer
             if (PartieDuNombreAConvertir.NombreDeCentaine > 0)
             {
                 if (PartieDuNombreAConvertir.NombreDeCentaine == 1)
@@ -19,7 +21,7 @@
                 if(PartieDuNombreAConvertir.NombreDeDizaine == 0 && PartieDuNombreAConvertir.NombreUnite == 0)
                     cent = "cents";
 
-                resultat = string.Format("{0}{1}{2}", AjouterAuResultat(Unite[PartieDuNombreAConvertir.NombreDeCentaine], resultat), _parametrage.RecupererSeparateur(), cent);
+                resultat = string.Format("{0}{1}{2}", AjouterAuResultat(Unite[PartieDuNombreAConvertir.NombreDeCentaine], resultat), Parametrage.RecupererSeparateur(), cent);
             }
 
             return resultat.Trim();

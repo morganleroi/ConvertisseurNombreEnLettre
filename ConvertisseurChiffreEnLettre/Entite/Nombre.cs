@@ -33,18 +33,18 @@ namespace ConvertisseurNombreEnLettre
             return DizaineAvecExceptionPourUneUnite.Any(x => x == NombreDeDizaine);
         }
 
-        public IEnumerable<PartieDuNombre> RecupererLaDecomposition()
+        public IEnumerable<PartieDuNombre> RecupererLaDecomposition(ConvertisseurNombreEnLettre.ParametrageDuConvertisseur parametrage)
         {
             var chiffreDeCompose = new List<PartieDuNombre>();
 
             if (NombreDeMillion > 0)
-                chiffreDeCompose.Add(new PartieDuNombreEnMillion(new Nombre(NombreDeMillion)));
+                chiffreDeCompose.Add(new PartieDuNombreEnMillion(new Nombre(NombreDeMillion), new Nombre(_nombre), parametrage));
 
             if (NombreDeMillier > 0)
-                chiffreDeCompose.Add(new PartieDuNombreEnMillier(new Nombre(NombreDeMillier)));
+                chiffreDeCompose.Add(new PartieDuNombreEnMillier(new Nombre(NombreDeMillier), new Nombre(_nombre), parametrage));
 
-            if (NombreCentaineDizaineUnite > 0)
-                chiffreDeCompose.Add(new PartieDuNombreEnCentaine(new Nombre(NombreCentaineDizaineUnite)));
+            if (NombreCentaineDizaineUnite >= 0)
+                chiffreDeCompose.Add(new PartieDuNombreEnCentaine(new Nombre(NombreCentaineDizaineUnite), new Nombre(_nombre), parametrage));
 
             return chiffreDeCompose;
         }
