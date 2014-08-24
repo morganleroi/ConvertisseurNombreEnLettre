@@ -1,4 +1,4 @@
-Convertisseur Nombre en Lettre
+Convertisseur Nombre en Lettre (C#)
 ===========================
 
 La convertion d'un nombre peut être utile dans beaucoup de projet. L'utilisation principale est l'édition d'une lettre chèque ou il est nécessaire d'écrire en toute lettre en montant.
