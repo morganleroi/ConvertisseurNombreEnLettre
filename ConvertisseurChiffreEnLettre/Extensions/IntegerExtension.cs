@@ -4,7 +4,12 @@
     {
        public static string ConvertirEnLettre(this int nombre)
        {
-           return ConvertisseurNombreEnLettre.ConvertirAvecParametrageParDefaut(new Nombre(nombre));
+           return ConvertisseurNombreEnLettre.ConvertirAvecParametrageParDefaut(nombre);
+       }
+
+       public static string ConvertirEnLettre(this decimal nombre)
+       {
+           return ConvertisseurNombreEnLettre.ConvertirAvecParametrageParDefaut(nombre);
        }
     }
 }

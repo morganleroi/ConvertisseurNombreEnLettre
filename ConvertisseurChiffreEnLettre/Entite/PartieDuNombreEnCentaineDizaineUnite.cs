@@ -1,8 +1,8 @@
 namespace ConvertisseurNombreEnLettre
 {
-    public class PartieDuNombreEnCentaine : PartieDuNombre
+    public class PartieDuNombreEnCentaineDizaineUnite : PartieDuNombre
     {
-        public PartieDuNombreEnCentaine(Nombre partieDuNomAConvertir, Nombre nombreOriginal, ConvertisseurNombreEnLettre.ParametrageDuConvertisseur parametrage) : base(partieDuNomAConvertir, nombreOriginal, parametrage) { }
+        public PartieDuNombreEnCentaineDizaineUnite(Nombre partieDuNomAConvertir, Nombre nombreOriginal, ConvertisseurNombreEnLettre.ParametrageDuConvertisseur parametrage) : base(partieDuNomAConvertir, nombreOriginal, parametrage) { }
 
         public override string Convertir()
         {

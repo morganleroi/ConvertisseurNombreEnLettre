@@ -4,6 +4,7 @@ namespace ConvertisseurNombreEnLettre
     {
         private const string Millions = "millions";
         private const string Million = "million";
+
         public PartieDuNombreEnMillion(Nombre partieDuNomAConvertir, Nombre nombreOriginal, ConvertisseurNombreEnLettre.ParametrageDuConvertisseur parametrage) : base(partieDuNomAConvertir, nombreOriginal, parametrage) { }
 
         protected override string Libelle

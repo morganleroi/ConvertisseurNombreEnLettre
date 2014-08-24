@@ -44,7 +44,7 @@ namespace ConvertisseurNombreEnLettre
                 chiffreDeCompose.Add(new PartieDuNombreEnMillier(new Nombre(NombreDeMillier), new Nombre(_nombre), parametrage));
 
             if (NombreCentaineDizaineUnite >= 0)
-                chiffreDeCompose.Add(new PartieDuNombreEnCentaine(new Nombre(NombreCentaineDizaineUnite), new Nombre(_nombre), parametrage));
+                chiffreDeCompose.Add(new PartieDuNombreEnCentaineDizaineUnite(new Nombre(NombreCentaineDizaineUnite), new Nombre(_nombre), parametrage));
 
             return chiffreDeCompose;
         }
@@ -81,8 +81,6 @@ namespace ConvertisseurNombreEnLettre
         {
             return this.NombreDeDizaine > 1;
         }
-
-
 
         public bool EstUneExceptionDizaineSoixanteDix()
         {

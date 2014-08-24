@@ -10,7 +10,7 @@ namespace ConvertisseurChiffreEnLettre.Test
         [TestMethod]
         public void PeutConvertirAvecLesDevises()
         {
-            var convertisseur = ConvertisseurNombreEnLettre.ConvertisseurNombreEnLettre.Parametrage.AppliquerUneDevises(Devise.EUR)
+            var convertisseur = ConvertisseurNombreEnLettre.ConvertisseurNombreEnLettre.Parametrage.AppliquerUneDevise(Devise.EUR)
                 .ValiderLeParametrage();
 
           convertisseur.Convertir(1).Should().Be("un euro");

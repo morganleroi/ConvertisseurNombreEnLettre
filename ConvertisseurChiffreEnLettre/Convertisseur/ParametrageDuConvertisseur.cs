@@ -26,6 +26,11 @@
             {
                 return (nombre.EstZero() || nombre.EstUn()) ? Devise.Singulier() : Devise.Pluriel();
             }
+
+            public bool DoitGenererUneDevise()
+            {
+                return Devise != null;
+            }
         }
     }
 }

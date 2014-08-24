@@ -17,12 +17,15 @@ namespace ConvertisseurNombreEnLettre
 
         public abstract string Convertir();
 
-        protected string AjouterAuResultat(string termeAAjouter, string resultat)
+
+        public static string AjouterAuResultat(string termeAAjouter, string resultat, string separateur)
         {
+            if (string.IsNullOrWhiteSpace(termeAAjouter))
+                return resultat;
+
             if (!string.IsNullOrEmpty(resultat))
-            {
-                return string.Format("{0}{1}{2}", resultat,Parametrage.RecupererSeparateur(), termeAAjouter.Trim());
-            }
+                return string.Format("{0}{1}{2}", resultat, separateur, termeAAjouter.Trim());
+
             return resultat + termeAAjouter;
         }
     }

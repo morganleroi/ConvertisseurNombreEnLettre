@@ -26,7 +26,7 @@
                 if (NombreOriginal.EstQuatreVingt())
                     dizaine = GererAccordQuatreVingt(dizaine);
 
-                resultat = AjouterAuResultat(dizaine, resultat);
+                resultat = AjouterAuResultat(dizaine, resultat, Parametrage.RecupererSeparateur());
             }
 
             return resultat.Trim();
@@ -35,7 +35,7 @@
         private string GererExceptionSoixanteDix(string resultat)
         {
             resultat = AjouterAuResultat(Dizaine[PartieDuNombreAConvertir.NombreDeDizaine].Replace("-dix", string.Empty),
-                resultat);
+                resultat, Parametrage.RecupererSeparateur());
 
             if (PartieDuNombreAConvertir.NombreUnite == 1)
                 resultat = GererExceptionSoixanteEtOnze(resultat);
@@ -51,13 +51,13 @@
 
         private string GererExceptionSoixanteEtOnze(string resultat)
         {
-            resultat = AjouterAuResultat("et", resultat);
+            resultat = AjouterAuResultat("et", resultat, Parametrage.RecupererSeparateur());
             return resultat;
         }
 
         private string ConvertirLaPremiereDizaine(string resultat, Nombre chiffre)
         {
-            resultat = AjouterAuResultat(PremiereDizaine[chiffre.NombreUnite + 1], resultat);
+            resultat = AjouterAuResultat(PremiereDizaine[chiffre.NombreUnite + 1], resultat, Parametrage.RecupererSeparateur());
             return resultat.Trim();
         }
 

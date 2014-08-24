@@ -17,8 +17,8 @@
                 var convertionUnite = Unite[PartieDuNombreAConvertir.NombreUnite];
 
                 if (PartieDuNombreAConvertir.NombreUnite == 1 && PartieDuNombreAConvertir.EstUneDizaineAvecExceptionPourUneUnite())
-                    resultat = AjouterAuResultat(string.Format("{0}{1}", "et", Parametrage.RecupererSeparateur()) + convertionUnite, resultat);
-                else resultat = AjouterAuResultat(convertionUnite, resultat);
+                    resultat = AjouterAuResultat(string.Format("{0}{1}", "et", Parametrage.RecupererSeparateur()) + convertionUnite, resultat, Parametrage.RecupererSeparateur());
+                else resultat = AjouterAuResultat(convertionUnite, resultat, Parametrage.RecupererSeparateur());
             }
 
             return resultat.Trim();

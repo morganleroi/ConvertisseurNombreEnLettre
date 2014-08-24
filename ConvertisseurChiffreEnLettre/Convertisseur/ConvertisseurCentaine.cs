@@ -23,7 +23,7 @@
                 if(PartieDuNombreAConvertir.NombreDeDizaine == 0 && PartieDuNombreAConvertir.NombreUnite == 0)
                     libelle = Cents;
 
-                resultat = string.Format("{0}{1}{2}", AjouterAuResultat(Unite[PartieDuNombreAConvertir.NombreDeCentaine], resultat), Parametrage.RecupererSeparateur(), libelle);
+                resultat = string.Format("{0}{1}{2}", AjouterAuResultat(Unite[PartieDuNombreAConvertir.NombreDeCentaine], resultat, Parametrage.RecupererSeparateur()), Parametrage.RecupererSeparateur(), libelle);
             }
 
             return resultat.Trim();

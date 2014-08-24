@@ -1,4 +1,6 @@
-﻿namespace ConvertisseurNombreEnLettre
+﻿using System;
+
+namespace ConvertisseurNombreEnLettre
 {
     public partial class ConvertisseurNombreEnLettre
     {
@@ -19,42 +21,51 @@
             }
         }
 
-        public static string ConvertirAvecParametrageParDefaut(Nombre chiffre)
+        public static string ConvertirAvecParametrageParDefaut(decimal chiffre)
         {
             return new ConvertisseurNombreEnLettre(ParametrageDuConvertisseur.ParDefaut())
                 .Convertir(chiffre);
         }
 
-        public string Convertir(int chiffreAConvertir)
+        public string Convertir(decimal chiffreAConvertir)
         {
-            var chiffre = new Nombre(chiffreAConvertir);
-            return Convertir(chiffre);
+            var partieAvantDecimale = (int)Decimal.Truncate(chiffreAConvertir);
+            decimal d = chiffreAConvertir - partieAvantDecimale;
+            decimal u = (decimal)Math.Pow(10, BitConverter.GetBytes(decimal.GetBits(chiffreAConvertir)[3])[2]);
+            decimal t = d * u;
+            var partieApresDecimale = (int)t;
+
+
+            return Convertir(new Nombre(partieAvantDecimale), new Nombre(partieApresDecimale));
         }
 
-        private string Convertir(Nombre nombre)
+        private string Convertir(Nombre nombre, Nombre chiffreAConvertirApresDecimale)
         {
             var resultat = string.Empty;
 
             foreach (var partieDuNombre in nombre.RecupererLaDecomposition(_parametrage))
-             resultat =  AjouterAuResultat(partieDuNombre.Convertir(), resultat);
-            
-            resultat = resultat.Trim();
+                resultat = Convertisseur.AjouterAuResultat(partieDuNombre.Convertir(), resultat, _parametrage.RecupererSeparateur());
 
-            if (_parametrage.Devise != null)
-                resultat += " " + _parametrage.RecupererLaDevisePourLeNombre(nombre);
+            if (_parametrage.DoitGenererUneDevise())
+                resultat = AjouterLaDevise(nombre, resultat);
 
+            if (!chiffreAConvertirApresDecimale.EstZero())
+            {
+                resultat += " virgule ";
+
+                var resultatApresVirgule = string.Empty;
+                foreach (var partieDuNombre in chiffreAConvertirApresDecimale.RecupererLaDecomposition(_parametrage))
+                    resultatApresVirgule = Convertisseur.AjouterAuResultat(partieDuNombre.Convertir(), resultatApresVirgule, _parametrage.RecupererSeparateur());
+
+                resultat += resultatApresVirgule;
+            }
             return resultat;
         }
 
-        private string AjouterAuResultat(string termeAAjouter, string resultat)
+        private string AjouterLaDevise(Nombre nombre, string resultat)
         {
-            if (string.IsNullOrWhiteSpace(termeAAjouter))
-                return resultat;
-
-            if (!string.IsNullOrEmpty(resultat))
-                return string.Format("{0}{1}{2}", resultat, _parametrage.RecupererSeparateur(), termeAAjouter.Trim());
-
-            return resultat + termeAAjouter;
+            resultat = string.Format("{0} {1}", resultat, _parametrage.RecupererLaDevisePourLeNombre(nombre));
+            return resultat;
         }
     }
 }

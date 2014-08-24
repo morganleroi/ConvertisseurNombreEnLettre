@@ -3,8 +3,9 @@
     public abstract class PartieDuNombre
     {
         protected Nombre NombreOriginal { get; set; }
-        protected ConvertisseurNombreEnLettre.ParametrageDuConvertisseur Parametrage { get; set; }
         protected readonly Nombre PartieDuNombreAConvertir;
+        private ConvertisseurNombreEnLettre.ParametrageDuConvertisseur Parametrage { get; set; }
+
 
         protected PartieDuNombre(Nombre partieDuNomAConvertir, Nombre nombreOriginal, ConvertisseurNombreEnLettre.ParametrageDuConvertisseur parametrage)
         {

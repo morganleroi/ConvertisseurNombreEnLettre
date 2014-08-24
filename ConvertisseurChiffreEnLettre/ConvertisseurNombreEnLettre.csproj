@@ -49,13 +49,14 @@
     <Compile Include="Convertisseur\ConvertisseurCentaine.cs" />
     <Compile Include="Convertisseur\ConvertisseurDizaine.cs" />
     <Compile Include="Convertisseur\ConvertisseurUnite.cs" />
+    <Compile Include="Convertisseur\Devise.cs" />
     <Compile Include="Extensions\IntegerExtension.cs" />
     <Compile Include="Entite\Nombre.cs" />
     <Compile Include="Convertisseur\FabriqueParametrageDuConvertisseur.cs" />
     <Compile Include="Convertisseur\ParametrageDuConvertisseur.cs" />
     <Compile Include="Convertisseur\ConvertisseurNombreEnLettre.cs" />
     <Compile Include="Entite\PartieDuNombre.cs" />
-    <Compile Include="Entite\PartieDuNombreEnCentaine.cs" />
+    <Compile Include="Entite\PartieDuNombreEnCentaineDizaineUnite.cs" />
     <Compile Include="Entite\PartieDuNombreEnMillier.cs" />
     <Compile Include="Entite\PartieDuNombreEnMillion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
