@@ -61,7 +61,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="TestConvertionAvecVirgule.cs" />
-    <Compile Include="TestConvertionAvecDevise.cs" />
+    <Compile Include="TestConvertionAvecUnites.cs" />
     <Compile Include="TestRegleDesTirets.cs" />
     <Compile Include="TestConvertisseurMillions.cs" />
     <Compile Include="TestConvertisseurMillier.cs" />

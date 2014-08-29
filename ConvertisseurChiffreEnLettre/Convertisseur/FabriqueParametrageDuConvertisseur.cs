@@ -28,9 +28,15 @@
                 return new ConvertisseurNombreEnLettre(_parametrageDuConvertisseur);
             }
 
-            public FabriqueParametrageDuConvertisseur AppliquerUneDevise(Devise devise)
+            public FabriqueParametrageDuConvertisseur AppliquerUneUnite(Unite unite)
             {
-                _parametrageDuConvertisseur.Devise = devise;
+                _parametrageDuConvertisseur.Unite = unite;
+                return this;
+            }
+
+            public FabriqueParametrageDuConvertisseur ModifierLaVirgule(string terme)
+            {
+                _parametrageDuConvertisseur.Virgule = terme;
                 return this;
             }
         }

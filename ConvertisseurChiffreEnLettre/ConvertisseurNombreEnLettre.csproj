@@ -49,7 +49,7 @@
     <Compile Include="Convertisseur\ConvertisseurCentaine.cs" />
     <Compile Include="Convertisseur\ConvertisseurDizaine.cs" />
     <Compile Include="Convertisseur\ConvertisseurUnite.cs" />
-    <Compile Include="Convertisseur\Devise.cs" />
+    <Compile Include="Convertisseur\Unite.cs" />
     <Compile Include="Extensions\IntegerExtension.cs" />
     <Compile Include="Entite\Nombre.cs" />
     <Compile Include="Convertisseur\FabriqueParametrageDuConvertisseur.cs" />

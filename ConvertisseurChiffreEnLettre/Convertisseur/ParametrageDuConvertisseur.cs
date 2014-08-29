@@ -6,14 +6,16 @@
         {
             public bool RegleDesTiretsDe1990 { get; set; }
             public bool RegleDeTraductionBelgeEtSuisse { get; set; }
-            public Devise Devise { get; set; }
+            public Unite Unite { get; set; }
+            public string Virgule { get; set; }
 
             public static ParametrageDuConvertisseur ParDefaut()
             {
                 return new ParametrageDuConvertisseur
                 {
                     RegleDeTraductionBelgeEtSuisse = false,
-                    RegleDesTiretsDe1990 = true
+                    RegleDesTiretsDe1990 = true,
+                    Virgule = ","
                 };
             }
 
@@ -22,14 +24,21 @@
                 return RegleDesTiretsDe1990 ? "-" : " ";
             }
 
-            public string RecupererLaDevisePourLeNombre(Nombre nombre)
+            public string RecupererUnitePourLeNombre(Nombre nombre, bool unitePourDecimale)
             {
-                return (nombre.EstZero() || nombre.EstUn()) ? Devise.Singulier() : Devise.Pluriel();
+                return (nombre.EstZero() || nombre.EstUn()) ? Unite.Singulier(unitePourDecimale) : Unite.Pluriel(unitePourDecimale);
             }
 
             public bool DoitGenererUneDevise()
             {
-                return Devise != null;
+                return Unite != null;
+            }
+
+            public string RecupererLaVirgule()
+            {
+                if (Virgule == ",")
+                    return string.Format("{0} ", Virgule);
+                return string.Format(" {0} ",Virgule);
             }
         }
     }
