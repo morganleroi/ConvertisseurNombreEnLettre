@@ -1,10 +1,12 @@
 Convertisseur Nombre en Lettre (C#)
 ===========================
 
-La convertion d'un nombre peut être utile dans beaucoup de projet. L'utilisation principale est l'édition d'une lettre chèque ou il est nécessaire d'écrire en toute lettre en montant.
-
-
 Ce convertisseur francais prend en charge les fonctionnalités suivantes :
-- Convertion de int et decimal
-- Prise en compte des règles orthographiques en vigueur. (Régle des tirets, Accords, ...).
-- Paramétrage avancé pour paramétrer l'ajout de devise, des traduction suisse / belges, ...
+- Convertion de nombre avec et sans partie décimale.
+- Prise en compte des règles orthographiques en vigueur. (Régle des tirets, Accords, exceptions Suisse et Belge).
+- Paramétrage avancé pour paramétrer l'ajout d'unités, les régles à appliquer, ...
+- 
+
+Comment utiliser le convertisseur ?
+- Télécharger la dll et l'intégrer à votre projet Visual Studio
+- 
