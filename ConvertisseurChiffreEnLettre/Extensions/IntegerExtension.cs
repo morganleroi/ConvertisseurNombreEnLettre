@@ -1,4 +1,4 @@
-﻿namespace ConvertisseurNombreEnLettre
+﻿namespace Convertisseur.Extension
 {
    public static class IntegerExtension
     {

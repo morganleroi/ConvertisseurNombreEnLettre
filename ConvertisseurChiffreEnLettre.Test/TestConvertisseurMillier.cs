@@ -1,4 +1,4 @@
-﻿using ConvertisseurNombreEnLettre;
+﻿using Convertisseur.Extension;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

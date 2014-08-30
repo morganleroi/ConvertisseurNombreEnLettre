@@ -1,6 +1,6 @@
-namespace ConvertisseurNombreEnLettre
+namespace Convertisseur.Entite
 {
-    public class PartieDuNombreEnMillier : PartieDuNombre
+    internal class PartieDuNombreEnMillier : PartieDuNombre
     {
         private const string Mille = "mille";
         public PartieDuNombreEnMillier(Nombre partieDuNomAConvertir, Nombre nombreOriginal, ConvertisseurNombreEnLettre.ParametrageDuConvertisseur parametrage) : base(partieDuNomAConvertir, nombreOriginal, parametrage) { }

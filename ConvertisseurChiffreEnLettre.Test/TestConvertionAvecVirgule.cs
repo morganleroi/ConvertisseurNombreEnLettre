@@ -1,4 +1,5 @@
-using ConvertisseurNombreEnLettre;
+using Convertisseur;
+using Convertisseur.Extension;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -18,7 +19,7 @@ namespace ConvertisseurChiffreEnLettre.Test
         [TestMethod]
         public void PeutModifierLeTermeVirgule()
         {
-            var convertisseur = ConvertisseurNombreEnLettre.ConvertisseurNombreEnLettre
+            var convertisseur = ConvertisseurNombreEnLettre
                 .Parametrage
                 .ModifierLaVirgule("virgule")
                 .ValiderLeParametrage();

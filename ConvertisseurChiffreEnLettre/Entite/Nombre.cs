@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ConvertisseurNombreEnLettre
+namespace Convertisseur.Entite
 {
     public class Nombre
     {

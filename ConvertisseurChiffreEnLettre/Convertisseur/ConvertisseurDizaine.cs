@@ -1,6 +1,8 @@
-﻿namespace ConvertisseurNombreEnLettre
+﻿using Convertisseur.Entite;
+
+namespace Convertisseur
 {
-    public class ConvertisseurDizaine : Convertisseur
+    internal class ConvertisseurDizaine : Convertisseur
     {
         static readonly string[] ExceptionDizaineBelgeEtSuisse = { " ", " ", " ", " ", " ", " ", " ", " septante", " ", " nonante" };
         static readonly string[] PremiereDizaine = { " ", " dix", " onze", " douze", " treize", " quatorze", " quinze", " seize", " dix-sept", "dix-huit", "dix-neuf" };

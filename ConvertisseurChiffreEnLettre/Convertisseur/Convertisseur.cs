@@ -1,6 +1,8 @@
-namespace ConvertisseurNombreEnLettre
+using Convertisseur.Entite;
+
+namespace Convertisseur
 {
-    public abstract class Convertisseur
+    internal abstract class Convertisseur
     {
         public static readonly string[] Unite = { "zéro", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf" };
 

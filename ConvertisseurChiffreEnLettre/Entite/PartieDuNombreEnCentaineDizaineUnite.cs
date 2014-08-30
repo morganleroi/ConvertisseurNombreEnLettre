@@ -1,6 +1,6 @@
-namespace ConvertisseurNombreEnLettre
+namespace Convertisseur.Entite
 {
-    public class PartieDuNombreEnCentaineDizaineUnite : PartieDuNombre
+    internal class PartieDuNombreEnCentaineDizaineUnite : PartieDuNombre
     {
         public PartieDuNombreEnCentaineDizaineUnite(Nombre partieDuNomAConvertir, Nombre nombreOriginal, ConvertisseurNombreEnLettre.ParametrageDuConvertisseur parametrage) : base(partieDuNomAConvertir, nombreOriginal, parametrage) { }
 

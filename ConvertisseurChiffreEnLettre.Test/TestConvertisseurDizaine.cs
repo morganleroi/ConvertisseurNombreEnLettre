@@ -1,4 +1,5 @@
-﻿using ConvertisseurNombreEnLettre;
+﻿using Convertisseur;
+using Convertisseur.Extension;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -69,7 +70,7 @@ namespace ConvertisseurChiffreEnLettre.Test
         [TestMethod]
         public void PeutAppliquerLExceptionBelgeEtSuisse()
         {
-            var convertisseur = ConvertisseurNombreEnLettre.ConvertisseurNombreEnLettre.Parametrage
+            var convertisseur = ConvertisseurNombreEnLettre.Parametrage
                   .AppliquerLaRegleDeTraductionBelgeEtSuisse(true)
                   .ValiderLeParametrage();
 

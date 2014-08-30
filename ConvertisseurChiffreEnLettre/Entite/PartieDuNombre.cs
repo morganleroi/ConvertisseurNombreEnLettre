@@ -1,4 +1,5 @@
-﻿namespace ConvertisseurNombreEnLettre
+﻿
+namespace Convertisseur.Entite
 {
     public abstract class PartieDuNombre
     {

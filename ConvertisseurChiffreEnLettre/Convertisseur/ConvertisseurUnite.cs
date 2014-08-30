@@ -1,6 +1,8 @@
-﻿namespace ConvertisseurNombreEnLettre
+﻿using Convertisseur.Entite;
+
+namespace Convertisseur
 {
-    public class ConvertisseurUnite : Convertisseur
+    internal class ConvertisseurUnite : Convertisseur
     {
         public ConvertisseurUnite(Nombre partieDuNombreAConvertir, Nombre nombreOriginal, ConvertisseurNombreEnLettre.ParametrageDuConvertisseur parametrage): base(partieDuNombreAConvertir, nombreOriginal, parametrage) {
         }

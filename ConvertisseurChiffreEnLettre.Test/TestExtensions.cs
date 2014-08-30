@@ -1,4 +1,4 @@
-﻿using ConvertisseurNombreEnLettre;
+﻿using Convertisseur.Extension;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -11,6 +11,12 @@ namespace ConvertisseurChiffreEnLettre.Test
         public void PeutConvertirDepuisUnInt()
         {
             42.ConvertirEnLettre().Should().Be("quarante-deux");
+        }
+
+        [TestMethod]
+        public void PeutConvertirDepuisUnDecimal()
+        {
+            42.50m.ConvertirEnLettre().Should().Be("quarante-deux, cinquante");
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace ConvertisseurNombreEnLettre
+﻿namespace Convertisseur.Entite
 {
     public class Unite
     {

@@ -1,4 +1,6 @@
-﻿namespace ConvertisseurNombreEnLettre
+﻿using Convertisseur.Entite;
+
+namespace Convertisseur
 {
     public partial class ConvertisseurNombreEnLettre
     {

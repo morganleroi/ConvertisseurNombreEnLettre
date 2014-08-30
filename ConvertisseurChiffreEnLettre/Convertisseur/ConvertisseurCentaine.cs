@@ -1,6 +1,8 @@
-﻿namespace ConvertisseurNombreEnLettre
+﻿using Convertisseur.Entite;
+
+namespace Convertisseur
 {
-    public class ConvertisseurCentaine : Convertisseur
+    internal class ConvertisseurCentaine : Convertisseur
     {
         private const string Cent = "cent";
         private const string Cents = "cents";

@@ -7,7 +7,7 @@
     <ProjectGuid>{3744117F-753A-4594-88DC-8CD0EA8FFB8A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ConvertisseurNombreEnLettre</RootNamespace>
+    <RootNamespace>Convertisseur</RootNamespace>
     <AssemblyName>ConvertisseurNombreEnLettre</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -46,7 +46,7 @@
     <Compile Include="Convertisseur\ConvertisseurCentaine.cs" />
     <Compile Include="Convertisseur\ConvertisseurDizaine.cs" />
     <Compile Include="Convertisseur\ConvertisseurUnite.cs" />
-    <Compile Include="Convertisseur\Unite.cs" />
+    <Compile Include="Entite\Unite.cs" />
     <Compile Include="Extensions\IntegerExtension.cs" />
     <Compile Include="Entite\Nombre.cs" />
     <Compile Include="Convertisseur\FabriqueParametrageDuConvertisseur.cs" />
