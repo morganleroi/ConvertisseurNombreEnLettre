@@ -113,7 +113,12 @@ var convertisseur = ConvertisseurNombreEnLettre.Parametrage
     .ModifierLaVirgule("et")
     .ValiderLeParametrage();
 
-convertisseur.Convertir(1).Should().Be("un pouet");
-convertisseur.Convertir(42).Should().Be("quarante-deux pouets");
-convertisseur.Convertir(42.27m).Should().Be("quarante-deux pouets et vingt-sept minipouets");
+//un pouet
+convertisseur.Convertir(1);
+
+//quarante-deux pouets
+convertisseur.Convertir(42);
+
+//quarante-deux pouets et vingt-sept minipouets
+convertisseur.Convertir(42.27m);
 ```
