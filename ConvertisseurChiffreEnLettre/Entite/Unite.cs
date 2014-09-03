@@ -40,5 +40,10 @@
         {
             return unitePourDecimale ? _plurielPartieDecimale : _plurielPartieEntiere;
         }
+
+        public static Unite Creer(string singulierPartieEntiere, string plurielPartieEntiere, string singulierePartieDecimale, string plurielPartieDecimale)
+        {
+           return new Unite(singulierPartieEntiere, plurielPartieEntiere, singulierePartieDecimale, plurielPartieDecimale);
+        }
     }
 }

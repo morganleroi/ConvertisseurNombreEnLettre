@@ -44,5 +44,18 @@ namespace ConvertisseurChiffreEnLettre.Test
             convertisseur.Convertir(42).Should().Be("quarante-deux kilos");
             convertisseur.Convertir(42.27m).Should().Be("quarante-deux kilos et vingt-sept grammes");
         }
+
+        [TestMethod]
+        public void PeutConvertirAvecUneUnitePersonnalisee()
+        {
+            var convertisseur = ConvertisseurNombreEnLettre.Parametrage
+                .AppliquerUneUnite(Unite.Creer("pouet", "pouets", "minipouet", "minipouets"))
+                .ModifierLaVirgule("et")
+                .ValiderLeParametrage();
+
+            convertisseur.Convertir(1).Should().Be("un pouet");
+            convertisseur.Convertir(42).Should().Be("quarante-deux pouets");
+            convertisseur.Convertir(42.27m).Should().Be("quarante-deux pouets et vingt-sept minipouets");
+        }
     }
 }

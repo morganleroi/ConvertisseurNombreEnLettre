@@ -41,6 +41,22 @@ namespace Convertisseur
                 _parametrageDuConvertisseur.Virgule = terme;
                 return this;
             }
+
+            public ConvertisseurNombreEnLettre ParDefaut()
+            {
+                return new ConvertisseurNombreEnLettre(_parametrageDuConvertisseur);
+            }
+
+            public FabriqueParametrageDuConvertisseur AppliquerLaRegleDesTirets(RegleTirets regle)
+            {
+                _parametrageDuConvertisseur.RegleDesTirets = regle;
+                return this;
+            }
         }
+    }
+
+    public enum RegleTirets
+    {
+        TiretsPartoutSaufMillierMillionsMilliards
     }
 }

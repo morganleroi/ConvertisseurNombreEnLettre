@@ -1,4 +1,6 @@
-﻿namespace Convertisseur.Extension
+﻿using System;
+
+namespace Convertisseur.Extension
 {
    public static class IntegerExtension
     {

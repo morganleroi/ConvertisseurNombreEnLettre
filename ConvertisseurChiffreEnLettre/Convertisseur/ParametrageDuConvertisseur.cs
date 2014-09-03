@@ -10,6 +10,7 @@ namespace Convertisseur
             public bool RegleDeTraductionBelgeEtSuisse { get; set; }
             public Unite Unite { get; set; }
             public string Virgule { get; set; }
+            public RegleTirets RegleDesTirets { get; set; }
 
             public static ParametrageDuConvertisseur ParDefaut()
             {
@@ -17,7 +18,7 @@ namespace Convertisseur
                 {
                     RegleDeTraductionBelgeEtSuisse = false,
                     RegleDesTiretsDe1990 = true,
-                    Virgule = ","
+                    Virgule = "virgule"
                 };
             }
 

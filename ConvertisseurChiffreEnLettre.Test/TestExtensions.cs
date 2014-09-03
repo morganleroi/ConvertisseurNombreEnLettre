@@ -16,7 +16,7 @@ namespace ConvertisseurChiffreEnLettre.Test
         [TestMethod]
         public void PeutConvertirDepuisUnDecimal()
         {
-            42.50m.ConvertirEnLettre().Should().Be("quarante-deux, cinquante");
+            42.50m.ConvertirEnLettre().Should().Be("quarante-deux virgule cinquante");
         }
     }
 }
